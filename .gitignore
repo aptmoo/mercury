@@ -30,3 +30,14 @@
 *.exe
 *.out
 *.app
+
+#makefiles
+*.make
+Makefile
+
+#binaries
+obj/*
+bin/client
+bin/server
+
+.git/*

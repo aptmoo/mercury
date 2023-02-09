@@ -1,0 +1,1 @@
+void print(string str, ...) = #1;

@@ -1,0 +1,5 @@
+cd ..
+premake5 gmake
+make
+cd bin
+./server
