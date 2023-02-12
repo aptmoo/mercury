@@ -40,4 +40,4 @@ obj/*
 bin/client
 bin/server
 
-.vscode/
+.vscode/*
