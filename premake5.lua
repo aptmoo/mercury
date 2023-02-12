@@ -31,7 +31,6 @@ project "game"
    language "C++"
    targetdir "bin/"
 
-
    includedirs {"./src/engine/", "./include/", "./src/ext/"}
 
    filter { "system:linux", "action:gmake" }
@@ -39,7 +38,7 @@ project "game"
       libdirs {"lib/", "/usr/lib/"}
 
 
-   links { "m", "mercuryengine" }
+   links { "m", "GL", "glfw", "mercuryengine" }
 
    files { "src/game/**.cpp", "src/game/*.c" }
 
