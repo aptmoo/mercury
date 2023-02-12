@@ -26,7 +26,7 @@ project "mercuryengine"
       defines { "NDEBUG" }
       optimize "On"
 
-project "server"
+project "game"
    kind "ConsoleApp"
    language "C++"
    targetdir "bin/"
@@ -41,7 +41,7 @@ project "server"
 
    links { "m", "mercuryengine" }
 
-   files { "src/server/**.cpp", "src/server/*.c" }
+   files { "src/game/**.cpp", "src/game/*.c" }
 
    filter "configurations:Debug"
       defines { "DEBUG" }
