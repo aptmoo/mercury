@@ -37,7 +37,6 @@ Makefile
 
 #binaries
 obj/*
-bin/client
-bin/server
+bin/game
 
 .vscode/*
