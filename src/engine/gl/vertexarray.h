@@ -20,7 +20,14 @@ public:
     */
     void AddBuffer(const VertexBuffer& vertex_buffer, const BufferLayout& layout, const IndexBuffer& index_buffer);
 
+    /*
+    @brief Bind this vertex array.
+    */
     void Bind() const;
+
+    /*
+    @brief Unbind this vertex array.
+    */
     void Unbind() const;
 };
 
