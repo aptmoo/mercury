@@ -2,6 +2,9 @@
 // Ext includes
 #include "glad/gl.h"
 
+// engine include
+#include "util/instrumentor.h"
+
 VertexArray::VertexArray()
 {
     glCreateVertexArrays(1, &gl_ID);
@@ -14,6 +17,8 @@ VertexArray::~VertexArray()
 
 void VertexArray::AddBuffer(const VertexBuffer& vertex_buffer, const BufferLayout& layout, const IndexBuffer& index_buffer)
 {
+    HG_PROFILE_FUNCTION();
+    
     unsigned int offset = 0;
     std::vector<BufferLayoutElement> elements = layout.GetElementVector();
     for(unsigned int i = 0; i < elements.size(); i++)

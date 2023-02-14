@@ -1,10 +1,13 @@
+// Ext include
 #include "glad/gl.h"
 #include <GLFW/glfw3.h>
 
+// Engine include
 #include "gl/buffers.h"
-
 #include "gl/vertexarray.h"
+#include "util/instrumentor.h"
 
+// Std include
 #include <iostream>
 
 const char *vertexShaderSource = "#version 330 core\n"
@@ -22,6 +25,7 @@ const char *fragmentShaderSource = "#version 330 core\n"
 
 int main(int argc, char const *argv[])
 {
+    HG_PROFILE_START("Game test", "performance.json");
     glfwInit();
 
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -68,6 +72,7 @@ int main(int argc, char const *argv[])
 
     while(!glfwWindowShouldClose(window))
     {
+        HG_NAMED_TIMER(Frame);
         glClear(GL_COLOR_BUFFER_BIT);
 
         glUseProgram(shader_program);
@@ -77,5 +82,7 @@ int main(int argc, char const *argv[])
         glfwPollEvents();
         glfwSwapBuffers(window);
     }
+
+    HG_PROFILE_END();
     return 0;
 }

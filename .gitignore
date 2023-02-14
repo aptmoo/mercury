@@ -38,5 +38,6 @@ Makefile
 #binaries
 obj/*
 bin/game
+bin/performance.json
 
 .vscode/*
