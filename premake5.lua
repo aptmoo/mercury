@@ -6,18 +6,18 @@ project "engine"
    language "C++"
    targetdir "bin/"
 
-   includedirs {"./src/engine/", "./include/", "./src/ext/"}
+   includedirs {"src/engine/", "src/platform/", "include/", "src/ext/"}
 
    filter { "system:linux", "action:gmake" }
       buildoptions { "--std=gnu++17 -Winvalid-pch" }
       libdirs {"lib/", "/usr/lib/"}
 
 
-   links { "m", "glfw", "vulkan", "GL", "dl", "X11", "pthread", "Xxf86vm", "Xrandr", "Xi" }
+   links { "glfw", "GL", "dl", "pthread" }
 
    defines { "GLFW_INCLUDE_NONE" }
 
-   files { "src/engine/**.cpp", "src/engine/*.c", "src/ext/**.cpp", "src/ext/**.c" }
+   files { "src/engine/**.cpp", "src/engine/*.c", "src/platform/**.cpp", "src/platform/*.c", "src/ext/**.cpp", "src/ext/**.c" }
 
    filter "configurations:Debug"
       defines { "DEBUG" }
