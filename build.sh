@@ -1,0 +1,3 @@
+cd buildgen
+make
+cd ..
