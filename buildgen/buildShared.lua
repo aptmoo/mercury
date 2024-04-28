@@ -3,6 +3,7 @@ project "shared"
     language "C++"
     cppdialect "C++17"
     targetdir "../lib/"
+    objdir "../bin-int/"
 
     files
     {

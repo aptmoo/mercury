@@ -36,14 +36,14 @@ define POSTBUILDCMDS
 endef
 
 ifeq ($(config),debug)
-OBJDIR = obj/Debug
+OBJDIR = ../bin-int/Debug
 DEFINES += -DSYSTEM_LINUX -DDEBUG
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -g
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -g -std=c++17
 ALL_LDFLAGS += $(LDFLAGS) -L../lib -L/lib -L/usr/lib -L/usr/lib64 -m64
 
 else ifeq ($(config),release)
-OBJDIR = obj/Release
+OBJDIR = ../bin-int/Release
 DEFINES += -DSYSTEM_LINUX -DNDEBUG
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -std=c++17
