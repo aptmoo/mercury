@@ -33,4 +33,4 @@
 
 # Generated files
 *.make
-Makefile
+*Makefile
