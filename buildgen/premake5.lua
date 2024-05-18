@@ -10,6 +10,7 @@ workspace "mercury"
 group "CoreEngine"  
     include "buildShared.lua"
     include "buildClient.lua"
+    include "buildGame.lua"
 group ""
 
 group "Tools"

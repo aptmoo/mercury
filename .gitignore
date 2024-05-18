@@ -34,3 +34,7 @@
 # Generated files
 *.make
 *Makefile
+
+# Output
+bin/*
+!bin/data/
