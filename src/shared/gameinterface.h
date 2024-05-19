@@ -1,12 +1,15 @@
 #ifndef SHARED_GAMEINTERFACE_H
 #define SHARED_GAMEINTERFACE_H
 
-class IGameInterface
+namespace hg
 {
-public:
-    virtual ~IGameInterface() = default;
+    class IGameInterface
+    {
+    public:
+        virtual ~IGameInterface() = default;
 
-    virtual void TestPrint() = 0;  
-};
+        virtual void TestPrint() = 0;  
+    };
+} // namespace hg
 
 #endif
