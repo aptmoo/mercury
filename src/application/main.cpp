@@ -5,6 +5,7 @@
 #include "shared/appinterface.h"
 #include "shared/gameinterface.h"
 #include "shared/args.h"
+#include "shared/gamemanager.h"
 
 class TestAppInterface : public hg::IAppInterface
 {
@@ -17,23 +18,21 @@ public:
 
 int main(int argc, char const *argv[])
 {
-    hg::Args args(argc, argv);
-    for(int i = 0; i < args.GetSize(); i++)
-    {
-        std::cout << args[i] << '\n';
-    }
+    hg::CArgs args(argc, argv);
 
-    std::string game = "./libgame.so";
+    std::string gamename;
+    if(args.Size() > 0)
+    {
+        gamename = args[0];
+    }
+    else
+        gamename = "basegame";
 
     TestAppInterface iface;
-    hg::IGameInterface* gameIface;
-    void* dllHandle = dlopen(game.c_str(), RTLD_NOW);
-    // Lmaoooo
-    void*(*getIface)(void) = (void*(*)(void))dlsym(dllHandle, "GDLL_GetInterface");
-    void(*setIface)(void*) = (void(*)(void*))dlsym(dllHandle, "GDLL_SetInterface");
-    setIface(&iface);
-    gameIface = (hg::IGameInterface*)getIface();
-    gameIface->TestPrint();
-    dlclose(dllHandle);
+    hg::CGameManager manager;
+    manager.Load(gamename);
+    manager.SetupInterfaces(&iface);
+    manager->Init();
+    manager->Update();
     return 0;
 }

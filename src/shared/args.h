@@ -5,7 +5,7 @@
 
 namespace hg
 {
-    class Args
+    class CArgs
     {
     public:
         /**
@@ -15,10 +15,10 @@ namespace hg
          * @param argc 
          * @param argv 
          */
-        Args(int argc, const char** argv);
-        ~Args(){};
+        CArgs(int argc, const char** argv);
+        ~CArgs(){};
 
-        std::size_t GetSize()
+        std::size_t Size()
         {
             return m_Args.size();
         }
@@ -32,8 +32,6 @@ namespace hg
         {
             return this->at(i);
         }
-
-
 
     private:
         std::vector<std::string> m_Args;

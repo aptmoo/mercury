@@ -2,8 +2,8 @@ project "gameDLL"
     kind "SharedLib"
     language "C++"
     cppdialect "C++17"
-    targetname "game"
-    targetdir "../bin/"
+    targetname "basegame"
+    targetdir "../bin/%{prj.targetname}"
     objdir "../bin-int/"
 
     files
@@ -25,7 +25,7 @@ project "gameDLL"
 
     links
     {
-
+        "shared"
     }
 
     filter "system:linux"

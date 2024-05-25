@@ -9,6 +9,9 @@ namespace hg
         virtual ~IGameInterface() = default;
 
         virtual void TestPrint() = 0;  
+
+        virtual void Init() = 0;
+        virtual void Update() = 0;  // TODO: Update should have dt
     };
 } // namespace hg
 
