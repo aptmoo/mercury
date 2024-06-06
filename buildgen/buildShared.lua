@@ -13,7 +13,8 @@ project "shared"
 
     includedirs
     {
-        "../src/shared/"
+        "../src/shared/",
+        "../ext/",
     }
 
     libdirs

@@ -1,5 +1,6 @@
 #ifndef SHARED_APPINTERFACE_H
 #define SHARED_APPINTERFACE_H
+#include <string>
 
 namespace hg
 {  
@@ -8,7 +9,7 @@ namespace hg
     public:
         virtual ~IAppInterface() = default;
 
-        virtual void TestPrint() = 0;
+        virtual void Print(const std::string& str) = 0;
     };
 } // namespace hg
 

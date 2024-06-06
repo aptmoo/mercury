@@ -3,8 +3,13 @@
 #include <vector>
 #include <string>
 
+#include <iostream>
+
 namespace hg
 {
+
+    static std::string s_EmptyString = "";
+
     class CArgs
     {
     public:
@@ -16,6 +21,7 @@ namespace hg
          * @param argv 
          */
         CArgs(int argc, const char** argv);
+        CArgs() = default;
         ~CArgs(){};
 
         std::size_t Size()
@@ -25,6 +31,8 @@ namespace hg
 
         const std::string& at(std::size_t i)
         {
+            if(i+1 > m_Args.size())
+                return s_EmptyString;   // lmaoo
             return m_Args.at(i);
         }
 

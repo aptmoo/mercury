@@ -3,6 +3,7 @@
 
 extern "C"  // Since we use dll func lookup, avoid cpp name scrambling
 {
+/* Exchange interfaces with app */
 void* GDLL_SetupInterfaces(void* iface);
 }
 
