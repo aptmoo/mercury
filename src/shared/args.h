@@ -10,7 +10,7 @@ namespace hg
 
     static std::string s_EmptyString = "";
 
-    class CArgs
+    class Args
     {
     public:
         /**
@@ -20,9 +20,9 @@ namespace hg
          * @param argc 
          * @param argv 
          */
-        CArgs(int argc, const char** argv);
-        CArgs() = default;
-        ~CArgs(){};
+        Args(int argc, const char** argv);
+        Args() = default;
+        ~Args(){};
 
         std::size_t Size()
         {

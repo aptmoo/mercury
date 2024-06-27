@@ -7,11 +7,11 @@
 
 namespace hg
 {
-    class CGameManager
+    class GameManager
     {
     public:
-        CGameManager();
-        ~CGameManager();
+        GameManager();
+        ~GameManager();
 
         void Load(const std::string& gameName);
         void UnLoad();
@@ -29,7 +29,7 @@ namespace hg
         }
 
         // Probably a bad idea
-        CGameManager(const CGameManager&) = delete;
+        GameManager(const GameManager&) = delete;
     private:
         struct GameManagerImpl;
         Scope<GameManagerImpl> m_Impl;

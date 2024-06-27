@@ -10,7 +10,7 @@ namespace hg
     struct ApplicationDesc
     {
         std::string Name = "DefaultName";
-        hg::CArgs Args;
+        hg::Args Args;
     };
 
     class Application
@@ -30,7 +30,7 @@ namespace hg
         bool m_Running = false;
 
         ApplicationDesc m_Desc;
-        CGameManager m_Manager;
+        GameManager m_Manager;
     };
 } // namespace hg
 

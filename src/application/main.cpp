@@ -3,10 +3,10 @@
 
 int main(int argc, char const *argv[])
 {
-    hg::CArgs args(argc, argv);
+    hg::Args args(argc, argv);
     hg::ApplicationDesc desc;
-    desc.args = args;
-    desc.name = "App";
+    desc.Args = args;
+    desc.Name = "App";
     hg::Application app(desc);
     app.Run();
 

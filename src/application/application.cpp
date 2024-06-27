@@ -14,6 +14,7 @@ namespace hg
             std::cout << str;
         }
     };
+    
     static AppInterface s_AppInterface;
 
     Application::Application(const ApplicationDesc& desc)

@@ -7,7 +7,7 @@ namespace hg
 {
     #if defined(SYSTEM_LINUX) || defined(__linux__) // VSCode will get pissed of if you dont do this.
     #include <dlfcn.h>
-    struct CGameManager::GameManagerImpl
+    struct GameManager::GameManagerImpl
     {
         GameManagerImpl(){};
         ~GameManagerImpl()
@@ -50,28 +50,28 @@ namespace hg
     };
     #endif
 
-    CGameManager::CGameManager()
+    GameManager::GameManager()
         : m_Impl(new GameManagerImpl())
     {
 
     }
 
-    CGameManager::~CGameManager()
+    GameManager::~GameManager()
     {
         m_Impl->UnLoad();
     }
 
-    void CGameManager::Load(const std::string& gamename)
+    void GameManager::Load(const std::string& gamename)
     {
         m_Impl->Load(gamename);
     }
     
-    void CGameManager::UnLoad()
+    void GameManager::UnLoad()
     {
         m_Impl->UnLoad();
     }
 
-    void CGameManager::SetupInterfaces(IAppInterface* appInterface)
+    void GameManager::SetupInterfaces(IAppInterface* appInterface)
     {
         m_Interface = m_Impl->SetupInterfaces(appInterface);
     }
