@@ -2,14 +2,30 @@
 #define SHARED_INSTRUMENTOR_H
 #include <string>
 #include <chrono>
+#include <thread>
 
 namespace hg
 {
-    using HighResTimePoint = std::chrono::time_point<std::chrono::high_resolution_clock>;
-
     struct ProfileResult
     {
+        std::string Name;
+        long long Start, End;
+        uint32_t ThreadID;
+    };
 
+    class Profiler
+    {
+    public:
+        void BeginSession(const std::string& name, const std::string& filepath = "perf.json");
+        void EndSession();
+
+        static Profiler& Get(){ return s_Instance; }
+    private:
+        Profiler()
+        
+        {}
+
+        static Profiler s_Instance;
     };
 
     class ProfilingTimer
@@ -29,15 +45,10 @@ namespace hg
             }
         }
 
-        void Stop()
-        {
-            HighResTimePoint endTymePoint = std::chrono::high_resolution_clock::now();
-            
-        }
-
+        void Stop();
     private:
         std::string m_Name;
-        HighResTimePoint m_StartTimePoint;
+        std::chrono::time_point<std::chrono::high_resolution_clock> m_StartTimePoint;
         bool m_IsStopped;
     };
 

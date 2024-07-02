@@ -3,7 +3,7 @@
 #include "shared/gameinterface.h"
 #include <iostream>
 
-static hg::IAppInterface *s_AppInterface;
+hg::IAppInterface *s_AppInterface;
 
 class TestGameInterface : public hg::IGameInterface
 {

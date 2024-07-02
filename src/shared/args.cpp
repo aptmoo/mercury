@@ -2,7 +2,7 @@
 
 namespace hg
 {
-    CArgs::CArgs(int argc, const char** argv)
+    Args::Args(int argc, const char** argv)
     {
         if(argc <= 1)
             return;
