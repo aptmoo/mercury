@@ -1,10 +1,58 @@
 #include "profiler.h"
+#include <algorithm>
 
 namespace hg
 {
     void Profiler::BeginSession(const std::string& name, const std::string& filepath = "perf.json")
     {
-        
+        m_OutputStream.open(filepath);
+        m_Name = name;
+        WriteHeader();
+    }
+
+    void Profiler::EndSession()
+    {
+        WriteFooter();
+
+        m_Name = "none";
+        m_ProfileCount = 0;
+        m_OutputStream.close();
+    }
+
+    void Profiler::WriteResult(const ProfileResult& result)
+    {
+        if(m_ProfileCount++)
+        {
+            m_OutputStream << ",";
+        }
+
+        // TODO: sanitize util func
+        std::string name = result.Name;
+        std::replace(name.begin(), name.end(), '"', '\"');
+
+        m_OutputStream << "{";
+        m_OutputStream << "\"cat\":\"function\",";
+        m_OutputStream << "\"dur\":" << (result.End - result.Start) << ',';
+        m_OutputStream << "\"name\":\"" << name << "\",";
+        m_OutputStream << "\"ph\":\"X\",";
+        m_OutputStream << "\"pid\":0,";
+        m_OutputStream << "\"tid\":" << result.ThreadID << ",";
+        m_OutputStream << "\"ts\":" << result.Start;
+        m_OutputStream << "}";
+
+        m_OutputStream.flush();
+    }
+
+    void Profiler::WriteHeader()
+    {
+        m_OutputStream << "{\"otherData\": {},\"traceEvents\":[";
+        m_OutputStream.flush();
+    }
+
+    void Profiler::WriteFooter()
+    {
+        m_OutputStream << "]}";
+        m_OutputStream.flush();
     }
 
     void ProfilingTimer::Stop()
