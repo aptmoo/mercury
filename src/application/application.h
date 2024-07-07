@@ -19,10 +19,15 @@ namespace hg
         Application(const ApplicationDesc& desc = ApplicationDesc());
         ~Application();
 
-        Application* Get();
+        /**
+         * @brief Get the current active app.
+         * 
+         * @return Application* 
+         */
+        static Application* Get();
 
         /**
-         * @brief Run app. Calls RunInternal to avoid "rerunning"
+         * @brief Run app.
          * 
          */
         void Run();

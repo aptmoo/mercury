@@ -1,9 +1,12 @@
 #include "application.h"
 #include "shared/args.h"
 
+#include <iostream>
+
 int main(int argc, char const *argv[])
 {
     hg::Args args(argc, argv);
+    hg::ParsedArgs pa(argc, argv);
     hg::ApplicationDesc desc;
     desc.Args = args;
     desc.Name = "App";

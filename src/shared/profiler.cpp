@@ -3,7 +3,7 @@
 
 namespace hg
 {
-    void Profiler::BeginSession(const std::string& name, const std::string& filepath = "perf.json")
+    void Profiler::BeginSession(const std::string& name, const std::string& filepath)
     {
         m_OutputStream.open(filepath);
         m_Name = name;

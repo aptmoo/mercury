@@ -1,9 +1,8 @@
 #ifndef SHARED_ARGS_H
 #define SHARED_ARGS_H
 #include <vector>
+#include <unordered_map>
 #include <string>
-
-#include <iostream>
 
 namespace hg
 {
@@ -22,7 +21,6 @@ namespace hg
          */
         Args(int argc, const char** argv);
         Args() = default;
-        ~Args(){};
 
         std::size_t Size()
         {
@@ -43,6 +41,34 @@ namespace hg
 
     private:
         std::vector<std::string> m_Args;
+    };
+
+    class ParsedArgs
+    {
+    public:
+        ParsedArgs(int argc, const char** argv);
+
+        std::size_t Size()
+        {
+            return m_Args.size();
+        }
+
+        bool Exists(const std::string& name)
+        {
+            return (m_Args.find(name) != m_Args.end());
+        }
+
+        const std::string& at(const std::string& key)
+        {
+            return m_Args.at(key);
+        }
+
+        const std::string& operator[](const std::string& key)
+        {
+            return m_Args.at(key);
+        }
+    private:
+        std::unordered_map<std::string, std::string> m_Args;
     };
 } // namespace hg
 

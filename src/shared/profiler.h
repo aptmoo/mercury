@@ -17,7 +17,7 @@ namespace hg
     class Profiler
     {
     public:
-        void BeginSession(const std::string& name, const std::string& filepath = "perf.json");
+        void BeginSession(const std::string& name, const std::string& filepath = "profile.json");
         void EndSession();
 
         void WriteResult(const ProfileResult& result);
@@ -62,6 +62,7 @@ namespace hg
     };
 
 } // namespace hg
+
 
 
 #endif
