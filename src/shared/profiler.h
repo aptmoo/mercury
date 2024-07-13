@@ -63,6 +63,17 @@ namespace hg
 
 } // namespace hg
 
-
+// TODO: stuff
+#ifndef NDEBUG
+#define HG_PROFILE_BEGIN_SESSION(name, filepath)    hg::Profiler::Get().BeginSession(name, filepath)
+#define HG_PROFILE_END_SESSION()                    hg::Profiler::Get().EndSession()
+#define HG_PROFILE_SCOPE_NAMED(name)                hg::ProfilingTimer timer##name(#name)
+#define HG_PROFILE_FUNCTION()                       HG_PROFILE_SCOPE_NAMED(__FUNCTION__)
+#else
+#define HG_PROFILE_BEGIN_SESSION(name, filepath)
+#define HG_PROFILE_END_SESSION()
+#define HG_PROFILE_SCOPE_NAMED(name)
+#define HG_PROFILE_FUNCTION()
+#endif
 
 #endif
