@@ -1,6 +1,8 @@
 #include "profiler.h"
 #include <algorithm>
 
+#include <iostream>
+
 namespace hg
 {
     void Profiler::BeginSession(const std::string& name, const std::string& filepath)
@@ -12,6 +14,7 @@ namespace hg
 
     void Profiler::EndSession()
     {
+        std::cout << "called endSession\n";
         WriteFooter();
 
         m_Name = "none";
@@ -51,6 +54,7 @@ namespace hg
 
     void Profiler::WriteFooter()
     {
+        std::cout << "Called WriteFooter!\n";
         m_OutputStream << "]}";
         m_OutputStream.flush();
     }

@@ -1,23 +1,13 @@
-#include "application.h"
+
 #include "shared/args.h"
+#include "shared/profiler.h"
 
 #include <iostream>
-
 int main(int argc, char const *argv[])
 {
-    hg::Args args(argc, argv);
-    hg::ParsedArgs pa(argc, argv);
-    hg::ApplicationDesc desc;
-    desc.Args = args;
-    desc.Name = "App";
-    hg::Application app(desc);
-    app.Run();
+    hg::ParsedArgs args(argc, argv);
+    HG_PROFILE_BEGIN_SESSION("mainProfile", args.GetOrDefault("profile", "profile.json"));
 
-    // TestAppInterface iface;
-    // hg::CGameManager manager;
-    // manager.Load(gamename);
-    // manager.SetupInterfaces(&iface);
-    // manager->Init();
-    // manager->Update();
+    HG_PROFILE_END_SESSION();
     return 0;
 }

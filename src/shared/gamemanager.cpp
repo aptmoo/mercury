@@ -5,19 +5,18 @@
 
 namespace hg
 {
-    #if defined(SYSTEM_LINUX) || defined(__linux__) // VSCode will get pissed of if you dont do this.
+    #if defined(SYSTEM_LINUX) || defined(__linux__) // VSCode will get pissed off if you dont do this.
     #include <dlfcn.h>
-    struct GameManager::GameManagerImpl
+    struct GameDLLManager::GameManagerImpl
     {
         GameManagerImpl(){};
         ~GameManagerImpl()
         {
-            this->UnLoad();
+            this->Unload();
         };
 
-        void Load(const std::string& gamename)
+        void Load(const std::string& path)
         {
-            std::string path = "./" + gamename + "/lib" + gamename + ".so";
             m_LibHandle = dlopen(path.c_str(), RTLD_NOW);
             if(!m_LibHandle)
             {
@@ -38,7 +37,7 @@ namespace hg
             return (IGameInterface*)setupInterface(appInterface);
         }
 
-        void UnLoad()
+        void Unload()
         {
             if(m_LibHandle)
                 dlclose(m_LibHandle);
@@ -50,28 +49,28 @@ namespace hg
     };
     #endif
 
-    GameManager::GameManager()
+    GameDLLManager::GameDLLManager()
         : m_Impl(new GameManagerImpl())
     {
 
     }
 
-    GameManager::~GameManager()
+    GameDLLManager::~GameDLLManager()
     {
-        m_Impl->UnLoad();
+        m_Impl->Unload();
     }
 
-    void GameManager::Load(const std::string& gamename)
+    void GameDLLManager::Load(const std::string& path)
     {
-        m_Impl->Load(gamename);
+        m_Impl->Load(path);
     }
     
-    void GameManager::UnLoad()
+    void GameDLLManager::Unload()
     {
-        m_Impl->UnLoad();
+        m_Impl->Unload();
     }
 
-    void GameManager::SetupInterfaces(IAppInterface* appInterface)
+    void GameDLLManager::SetupInterfaces(IAppInterface* appInterface)
     {
         m_Interface = m_Impl->SetupInterfaces(appInterface);
     }

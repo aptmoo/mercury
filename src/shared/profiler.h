@@ -1,3 +1,11 @@
+/**
+ * @file profiler.h
+ * @brief Crude profiler.
+ * @version 0.1
+ * @date 2024-07-13
+ * 
+ */
+
 #ifndef SHARED_INSTRUMENTOR_H
 #define SHARED_INSTRUMENTOR_H
 #include <string>
@@ -25,7 +33,11 @@ namespace hg
         void WriteHeader();
         void WriteFooter();
 
-        static Profiler& Get(){ return s_Instance; }
+        static Profiler& Get()
+        {
+            static Profiler s_Instance;
+            return s_Instance; 
+        }
     private:
         Profiler()
             : m_ProfileCount{0}
@@ -34,7 +46,6 @@ namespace hg
         std::ofstream m_OutputStream;
         std::string m_Name;
         int m_ProfileCount;
-        static Profiler s_Instance;
     };
 
     class ProfilingTimer

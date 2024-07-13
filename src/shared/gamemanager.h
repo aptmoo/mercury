@@ -7,14 +7,14 @@
 
 namespace hg
 {
-    class GameManager
+    class GameDLLManager
     {
     public:
-        GameManager();
-        ~GameManager();
+        GameDLLManager();
+        ~GameDLLManager();
 
-        void Load(const std::string& gameName);
-        void UnLoad();
+        void Load(const std::string& path);
+        void Unload();
 
         void SetupInterfaces(IAppInterface* interface);
 
@@ -23,13 +23,13 @@ namespace hg
             return m_Interface;
         }
 
-        IGameInterface* const GetPtr()
+        IGameInterface* const GetInterface()
         {
             return m_Interface;
         }
 
         // Probably a bad idea
-        GameManager(const GameManager&) = delete;
+        GameDLLManager(const GameDLLManager&) = delete;
     private:
         struct GameManagerImpl;
         Scope<GameManagerImpl> m_Impl;

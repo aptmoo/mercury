@@ -1,3 +1,10 @@
+/**
+ * @file types.h
+ * @brief Commonly used types and type aliases.
+ * @version 0.1
+ * @date 2024-07-13
+ */
+
 #ifndef SHARED_TYPES_H
 #define SHARED_TYPES_H
 #include <memory>

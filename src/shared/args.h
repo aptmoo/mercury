@@ -47,6 +47,7 @@ namespace hg
     {
     public:
         ParsedArgs(int argc, const char** argv);
+        ParsedArgs() = default;
 
         std::size_t Size()
         {
@@ -56,6 +57,16 @@ namespace hg
         bool Exists(const std::string& name)
         {
             return (m_Args.find(name) != m_Args.end());
+        }
+
+        const std::string& GetOrDefault(const std::string& key, const std::string& d)
+        {
+            if(this->Exists(key))
+            {
+                return this->at(key);
+            }
+
+            return d;
         }
 
         const std::string& at(const std::string& key)
