@@ -1,21 +1,22 @@
-project "app"
+project "clientApp"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++17"
+    -- TODO: Game name in buildgen?
     targetname "game"
     targetdir "../bin/"
     objdir "../bin-int/"
 
     files
     {
-        "../src/application/**.h",
-        "../src/application/**.cpp",
+        "../src/clientApp/**.h",
+        "../src/clientApp/**.cpp",
     }
 
     includedirs
     {
         "../src/",
-        "../src/application/"
+        "../src/clientApp/"
     }
 
     libdirs

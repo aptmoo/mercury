@@ -5,16 +5,13 @@
 
 hg::IAppInterface *s_AppInterface;
 
-class TestGameInterface : public hg::IGameInterface
+struct TestGameInterface : public hg::IGameInterface
 {
-public:
     TestGameInterface(){};
     virtual ~TestGameInterface() override {};
 
-    virtual void TestPrint() override { std::cout << "Hello from GameDLL new, called by app!\n"; };
-
-    virtual void Init() override { std::cout << "Init!\n"; }
-    virtual void Update() override { s_AppInterface->Print("Update!\n"); }
+    virtual void Init() override { }
+    virtual void Update() override { }
 };
 
 static TestGameInterface s_GameInterface;

@@ -3,7 +3,7 @@
 
 namespace hg
 {
-    class IGameInterface
+    struct IGameInterface
     {
         virtual ~IGameInterface() = default; 
 
