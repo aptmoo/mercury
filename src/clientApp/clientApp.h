@@ -11,8 +11,12 @@ namespace hg
     class ClientApplication : IBaseApplication
     {
     public:
-
+        ClientApplication(const BaseAppDesc& desc);
         virtual ~ClientApplication() override;
+
+        void Run() override;
+    private:
+        BaseAppDesc m_Desc;
     };
 } // namespace hg
 

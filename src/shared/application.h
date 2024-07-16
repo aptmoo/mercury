@@ -8,7 +8,7 @@ namespace hg
 {
     struct BaseAppDesc
     {
-        BaseAppDesc(std::string name = "", int width = 1280, int height = 720, ParsedArgs& args)
+        BaseAppDesc(ParsedArgs& args, std::string name = "", int width = 1280, int height = 720)
             : Name{name}, Width{width}, Height{height}, Args{args}
         {}
 
