@@ -8,20 +8,19 @@ namespace hg
 {
     struct BaseAppDesc
     {
-        BaseAppDesc(ParsedArgs& args, std::string name = "", int width = 1280, int height = 720)
-            : Name{name}, Width{width}, Height{height}, Args{args}
-        {}
-
         std::string Name;
         int Width, Height;
 
-        ParsedArgs& Args;
+        ParsedArgs Args;
     };
-    
 
+    class IBaseApplication;
+    extern IBaseApplication* s_Instance;
+    
     class IBaseApplication
     {
     public:
+        IBaseApplication() = default;
         virtual ~IBaseApplication() = default;
 
         // Application classes shouldn't be copied
@@ -42,8 +41,6 @@ namespace hg
 
         // Unsafe
         // static IBaseApplication* GetInstancePtr() { return s_Instance; };
-    private:
-        static IBaseApplication* s_Instance;
     };
 } // namespace hg
 

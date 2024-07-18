@@ -8,14 +8,22 @@
 
 namespace hg
 {
-    class ClientApplication : IBaseApplication
+    class ClientApplication : public IBaseApplication
     {
     public:
         ClientApplication(const BaseAppDesc& desc);
         virtual ~ClientApplication() override;
 
         void Run() override;
+
+        bool IsRunning() { return m_Running; };
+        void Shutdown() { m_Running = false; };
+
     private:
+        void Render();
+        void Update();
+
+        bool m_Running = false;
         BaseAppDesc m_Desc;
     };
 } // namespace hg

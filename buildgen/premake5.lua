@@ -9,7 +9,7 @@ workspace "mercury"
 
 group "CoreEngine"  
     include "buildShared.lua"
-    include "buildApp.lua"
+    include "buildclientApp.lua"
     include "buildGame.lua"
 group ""
 
