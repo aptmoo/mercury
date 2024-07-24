@@ -8,7 +8,7 @@
 
 namespace hg
 {
-    class ClientApplication : public IBaseApplication
+    class ClientApplication final : public IBaseApplication
     {
     public:
         ClientApplication(const BaseAppDesc& desc);
