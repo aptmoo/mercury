@@ -16,6 +16,7 @@ project "clientApp"
     includedirs
     {
         "../src/",
+        "../src/shared/",
         "../src/clientApp/"
     }
 

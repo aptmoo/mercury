@@ -15,6 +15,8 @@ namespace hg
     struct IAppInterface
     {
         virtual ~IAppInterface() = default;
+        
+        virtual void Shutdown() = 0;
     };
 } // namespace hg
 

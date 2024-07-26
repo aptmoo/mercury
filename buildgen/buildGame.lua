@@ -15,6 +15,7 @@ project "gameDLL"
     includedirs
     {
         "../src/",
+        "../src/shared/",
         "../src/gamedll/"
     }
 

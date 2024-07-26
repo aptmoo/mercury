@@ -14,7 +14,6 @@ namespace hg
 
     void Profiler::EndSession()
     {
-        std::cout << "called endSession\n";
         WriteFooter();
 
         m_Name = "none";
@@ -54,7 +53,6 @@ namespace hg
 
     void Profiler::WriteFooter()
     {
-        std::cout << "Called WriteFooter!\n";
         m_OutputStream << "]}";
         m_OutputStream.flush();
     }

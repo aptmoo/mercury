@@ -1,8 +1,9 @@
 #ifndef CLIENTAPP_H
 #define CLIENTAPP_H
-#include "shared/types.h"
-#include "shared/application.h"
-#include "shared/args.h"
+#include "core/types.h"
+#include "core/application.h"
+#include "core/args.h"
+#include "core/gamemanager.h"
 
 #include <string>
 
@@ -16,12 +17,14 @@ namespace hg
 
         void Run() override;
 
-        bool IsRunning() { return m_Running; };
-        void Shutdown() { m_Running = false; };
+        virtual bool IsRunning() override { return m_Running; };
+        virtual void Shutdown() override { m_Running = false; };
 
     private:
         void Render();
         void Update();
+
+        GameDLLManager m_GameDLL;
 
         bool m_Running = false;
         BaseAppDesc m_Desc;

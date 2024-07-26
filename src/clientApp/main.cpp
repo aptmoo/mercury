@@ -1,6 +1,6 @@
 #include "clientApp.h"
-#include "shared/args.h"
-#include "shared/profiler.h"
+#include "core/args.h"
+#include "core/profiler.h"
 
 #include <iostream>
 int main(int argc, char const *argv[])

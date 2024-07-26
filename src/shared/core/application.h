@@ -31,6 +31,9 @@ namespace hg
          */
         virtual void Run() = 0;
 
+        virtual bool IsRunning() = 0;
+        virtual void Shutdown() = 0;
+
         /**
          * @brief Get or set the current instance.
          * 

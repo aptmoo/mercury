@@ -11,6 +11,7 @@ group "CoreEngine"
     include "buildShared.lua"
     include "buildclientApp.lua"
     include "buildGame.lua"
+    include "buildSandbox.lua"
 group ""
 
 group "Tools"

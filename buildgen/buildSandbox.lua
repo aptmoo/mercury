@@ -15,6 +15,7 @@ project "sandboxDLL"
     includedirs
     {
         "../src/",
+        "../src/shared/",
         "../src/sandbox/"
     }
 

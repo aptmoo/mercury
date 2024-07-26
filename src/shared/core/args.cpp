@@ -34,6 +34,7 @@ namespace hg
                 if(value.find("--") != std::string::npos)
                     value = "";
 
+                key.erase(0, 2);
                 m_Args.emplace(key, value);
             }
         }
