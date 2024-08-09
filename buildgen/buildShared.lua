@@ -9,11 +9,15 @@ project "shared"
     {
         "../src/shared/**.h",
         "../src/shared/**.cpp",
+
+        "../src/sharedPlatform/null/**.h",
+        "../src/sharedPlatform/null/**.cpp"
     }
 
     includedirs
     {
         "../src/shared/",
+        "../src/sharedPlatform/",
         "../ext/",
     }
 
@@ -25,6 +29,8 @@ project "shared"
     filter "system:linux"
         defines { "SYSTEM_LINUX" }
         libdirs { "/lib/", "/usr/lib" }
+        links { "GLFW", "dl", "m", "pthread" }
+        files { "../src/sharedPlatform/linux/**.h", "../src/sharedPlatform/linux/**.cpp",}
     
     filter "configurations:Debug"
         defines { "DEBUG" }

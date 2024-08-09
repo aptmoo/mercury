@@ -7,6 +7,10 @@ workspace "mercury"
         "Release",
     }
 
+group "Dependencies"
+    include "buildGLFW.lua"
+group ""
+
 group "CoreEngine"  
     include "buildShared.lua"
     include "buildclientApp.lua"

@@ -31,7 +31,7 @@ project "sandboxDLL"
 
     filter "system:linux"
         defines { "SYSTEM_LINUX" }
-        links { "dl", "m" }
+        links { "dl", "m", "pthread" }
         libdirs { "/lib/", "/usr/lib" }
     
     filter "configurations:Debug"

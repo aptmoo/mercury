@@ -2,14 +2,16 @@
 
 namespace hg
 {
+    static ClientApplication* s_pInstance;
+
     struct ClientAppInterface : IAppInterface
     {
-        virtual void Shutdown() override { IBaseApplication::GetInstance().Shutdown(); }
+        virtual void Shutdown() override { ClientApplication::GetInstance().Shutdown(); }
     };
 
-    ClientApplication::ClientApplication(const BaseAppDesc& desc)
+    ClientApplication::ClientApplication(const AppDesc& desc)
     {
-        SetInstance(this);
+        s_pInstance = this;
         m_Desc = desc;
     }
 
@@ -48,5 +50,10 @@ namespace hg
     void ClientApplication::Render()
     {
 
+    }
+
+    ClientApplication& ClientApplication::GetInstance()
+    {
+        return *s_pInstance;
     }
 } // namespace hg

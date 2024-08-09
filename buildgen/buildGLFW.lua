@@ -1,22 +1,20 @@
-project "gameDLL"
-    kind "SharedLib"
-    language "C++"
-    cppdialect "C++17"
-    targetname "basegame"
-    targetdir "../bin/%{prj.targetname}"
+project "GLFW"
+    kind "StaticLib"
+    language "C"
+    targetname "GLFW"
+    targetdir "../lib/"
     objdir "../bin-int/"
 
     files
     {
-        "../src/gamedll/**.h",
-        "../src/gamedll/**.cpp",
+        "../ext/glfw/include/**.h",
+        "../ext/glfw/src/**.h",
+        "../ext/glfw/src/**.c",
     }
 
     includedirs
     {
         "../src/",
-        "../src/shared/",
-        "../src/gamedll/"
     }
 
     libdirs
@@ -26,11 +24,11 @@ project "gameDLL"
 
     links
     {
-        "shared"
+        
     }
 
     filter "system:linux"
-        defines { "SYSTEM_LINUX" }
+        defines { "SYSTEM_LINUX", "_GLFW_X11",} -- "_GLFW_WAYLAND" }
         links { "dl", "m", "pthread" }
         libdirs { "/lib/", "/usr/lib" }
     

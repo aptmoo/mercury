@@ -24,7 +24,7 @@ namespace hg
     using Scope = std::unique_ptr<T>;
 
     template<typename T, typename ... TArgs>
-    Ref<T> MakeScope(TArgs&&... args)
+    Scope<T> MakeScope(TArgs&&... args)
     {
         return std::make_unique<T>(std::forward<TArgs>(args)...);
     }
