@@ -16,6 +16,8 @@ namespace hg
     public:
         virtual ~IWindow() = default;
 
+        virtual void Update() = 0;
+
         virtual int GetHeight() = 0;
         virtual int GetWidth() = 0;
         virtual void SetSize(int width, int height) = 0;

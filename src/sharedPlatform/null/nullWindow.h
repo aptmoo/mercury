@@ -10,6 +10,8 @@ namespace hg
         NullWindow(){};
         virtual ~NullWindow() override {};
 
+        virtual void Update() override;
+
         virtual int GetHeight() override { return 0; };
         virtual int GetWidth() override { return 0; };
         virtual void SetSize(int width, int height) override {};

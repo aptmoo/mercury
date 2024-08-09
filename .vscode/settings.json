@@ -77,5 +77,6 @@
         "__node_handle": "cpp",
         "__split_buffer": "cpp",
         "__tree": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/greerg/Projects/mercury/ext/glfw"
 }
